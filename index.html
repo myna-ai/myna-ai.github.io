@@ -1,71 +1,440 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/icon_nobg.png" />
     <style>
       body {
-        font-family: monospace;
+        font-family: "DM Sans", sans-serif;
+        font-optical-sizing: auto;
         font-size: 14px;
+        background-color: black;
+        color: white;
+        padding: 10px 5px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrapper {
+        margin-top: 10px;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        min-height: 100px;
+      }
+      .wrapper > div {
+        border-radius: 20px;
+      }
+      .wrapper > .full {
+        grid-column: auto / span 2;
+      }
+
+      @media (max-width: 768px) {
+        .wrapper > .half {
+          grid-column: auto / span 2;
+        }
+      }
+
+      .logo {
+        background: #fed700;
+        margin-bottom: 10px;
+        padding: 3px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .head-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 60vh;
+        padding: 30px;
+      }
+
+      .head-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 30px;
+      }
+
+      .head-3 {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 0.8fr 1fr;
+        padding: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .head-3 > * {
+          grid-column: auto / span 3;
+        }
+      }
+
+      .tutorial-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .apis {
+        display: flex;
+        gap: 10px;
+      }
+
+      .two-column {
+        display: flex;
+        gap: 10px;
+      }
+
+      .two-column.bottom {
+        align-items: flex-end;
+      }
+
+      .two-column > *:first-child {
+        flex: 1;
+      }
+
+      .text-vlg {
+        font-size: 4rem;
+        line-height: 4rem;
+        font-weight: bold;
+      }
+
+      .text-lg {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        font-weight: bold;
+      }
+
+      .text-md {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .text-vlg {
+          font-size: 3rem;
+          line-height: 3rem;
+        }
+
+        .text-lg {
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+
+        .text-md {
+          font-size: 1rem;
+          line-height: 1rem;
+        }
+      }
+
+      .palette-1 {
+        background-color: #f6f5f2;
+        color: black;
+      }
+
+      .palette-2 {
+        background-color: #90c8ac;
+        color: black;
+      }
+
+      .palette-3 {
+        background-color: #9a86a4;
+        color: black;
+      }
+
+      .palette-4 {
+        background-color: #111;
+        color: white;
+      }
+
+      .download {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.5s ease, background-color 0.5s ease;
+      }
+
+      .download:hover {
+        background-color: #ffb200;
+        color: black;
+      }
+
+      .title-text {
+        padding-inline: 20px;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .header-text {
+        padding-block: 10px 50px;
+      }
+      .free-text {
+        /* font-size: 12px; */
+        margin-top: 10px;
+      }
+      .footer-text {
+        margin-block: 60px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .dark-button {
+        width: max-content;
+        cursor: pointer;
+        background: #000;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        transition: color 0.5s ease, background-color 0.5s ease;
+      }
+      .dark-button:hover {
+        background-color: white;
+        color: black;
       }
     </style>
     <title>Myna</title>
   </head>
   <body>
-    <div style="max-width: 900px; padding: 20px; margin-inline: auto">
-      <div><b>Myna Ai</b></div>
-      <div>
-        Practice speaking in real-life scenarios without the fear of making
-        mistakes. The Myna AI app enhances your confidence and fluency by
-        offering a safe, engaging environment to practice languages naturally.
-        By focusing on practical, conversational skills rather than perfection,
-        Myna AI helps you build a solid foundation in the language, encouraging
-        you to speak more freely and comfortably.
+    <div class="title-text">Myna Ai</div>
+    <div class="wrapper">
+      <div class="full head-1 palette-1">
+        <img class="logo" width="30" src="images/icon_nobg.png" />
+        <div class="text-xs">Learn languages with AI</div>
+        <div class="text-vlg header-text">
+          Learn languages<br />with no-stress, playful AI chats!
+        </div>
+        <a href="https://apps.apple.com/us/app/myna-ai/id6480445806">
+          <div class="download">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="icon icon-tabler icons-tabler-outline icon-tabler-brand-apple"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z"
+              />
+              <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" />
+            </svg>
+            <span>Download App</span>
+          </div>
+        </a>
+        <div class="free-text">free for ChatGPT & Gemini users</div>
       </div>
-      <div style="margin-top: 10px">
-        <a
-          style="display: flex; gap: 5px;"
-          target="_blank"
-          href="https://apps.apple.com/us/app/myna-ai/id6480445806"
-        >
-          <img
-            style="border: 1px solid #000; border-radius: 50%;"
-            width="18"
-            src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAqQaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0NjAsIDIwMjAvMDUvMTItMTY6MDQ6MTcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjQtMDQtMDdUMTI6MzA6NTgrMDU6NDUiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQtMDUtMDNUMDk6NTgrMDU6NDUiIHhtcDpNb2RpZnlEYXRlPSIyMDI0LTA1LTAzVDA5OjU4KzA1OjQ1IiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NWZmMzJmMy1hN2Q1LWUzNGEtYTE3ZS05NWIwYzNkM2U2ZmUiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxYmRkOGE2MS1mYTQ1LWE1NGUtYWQ2Ny0xODJmZTBiOGY0ZWMiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3N2JjODY0ZS1jNWFmLWM0NDYtOTcyMi03YmFiMjBkZDNhNTQiIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgdGlmZjpPcmllbnRhdGlvbj0iMSIgdGlmZjpYUmVzb2x1dGlvbj0iMzAwMDAwMC8xMDAwMCIgdGlmZjpZUmVzb2x1dGlvbj0iMzAwMDAwMC8xMDAwMCIgdGlmZjpSZXNvbHV0aW9uVW5pdD0iMiIgZXhpZjpDb2xvclNwYWNlPSIxIiBleGlmOlBpeGVsWERpbWVuc2lvbj0iMTAyNCIgZXhpZjpQaXhlbFlEaW1lbnNpb249IjEwMjQiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjc3YmM4NjRlLWM1YWYtYzQ0Ni05NzIyLTdiYWIyMGRkM2E1NCIgc3RFdnQ6d2hlbj0iMjAyNC0wNC0wN1QxMjozMDo1OCswNTo0NSIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpiZjE1OGYwYS1hMTQ5LWYyNGMtYmNiMi05OTM2ZmM4OGY5ODYiIHN0RXZ0OndoZW49IjIwMjQtMDQtMDdUMTI6Mzg6MjIrMDU6NDUiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZWEwZWZlOWYtMGM5Zi0xNjRiLWJjMWYtMjAzYzg5Nzc1ZjA5IiBzdEV2dDp3aGVuPSIyMDI0LTA1LTAzVDA5OjU4KzA1OjQ1IiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMiAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNvbnZlcnRlZCIgc3RFdnQ6cGFyYW1ldGVycz0iZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iZGVyaXZlZCIgc3RFdnQ6cGFyYW1ldGVycz0iY29udmVydGVkIGZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1ZmYzMmYzLWE3ZDUtZTM0YS1hMTdlLTk1YjBjM2QzZTZmZSIgc3RFdnQ6d2hlbj0iMjAyNC0wNS0wM1QwOTo1OCswNTo0NSIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDplYTBlZmU5Zi0wYzlmLTE2NGItYmMxZi0yMDNjODk3NzVmMDkiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDplODEwNmEyMC0zZjUxLTY5NDgtYWVmMS0wYzVmZjI5NThjOWYiIHN0UmVmOm9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3N2JjODY0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"
-          />
-          <span> Download the iOS app</span></a
-        >
-      </div>
-      <div style="margin-top: 30px; display: flex; flex-direction: column">
-        <span
-          >contact:
-          <img
-            style="height: 10px"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQoAAAAQCAYAAADu8TGAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAZ5SURBVHhe7Vs/VuM8EJ9wFodi357APoGhoaKlc8qkoaOko7HL0H0tFc3aJ0hOwKNAvou/GVn/IzuSl7DZxb/39HYjyaPRzE9jz9hA5wXr6gI6ANGKWvSfCVjZpVI30dKSicEZ5w5WFsp/aVEi284ddVcIfQePwj/OyQvc0IwZX4a2ymC5AXhgHd6kGDzABpZZBa0Yn3GeGAgUCeRbdCQrAaPk+SFZw64jonXAyrPUcIYXDTxhkCjZFvKEfiPP7pFj+xf4ddaRIoet4Ns2F10u/nFO6kDRNrDKFrBYiJatoGFizAXOrVaZnrvIIFs1+q5AstRY37KqH6U7itlP14qh43Ino4UG5WZDctvKGFvAqiJbGHqgLZSOJgL1baw99/ttm5Vak66JBl6vZOIduam0PO67A33RBjTH3JdH32Ylx/omVXP9tlILhMnlaF7hGX7CJQ8SAskl9vjRNpXFyWxF+7T1UA3Xl3NpnvYL9lvOi9DX4QU1yeOvhdDZ1INswTmAvhazehzhOtpU8yTUZgjKP7pa54zeZiZmo3MLzOYQTOd0ssl8DaOt1Q+QdnwoRK4HUt5wPoi6pD6Z1KS+h/mlr1n5aYS+tbPn1KNPdD6L67sy7Oba7NAnqhkbs2pT2OSQ67eilvqGySVwGamsSbCuLKRMwQETR/cX00z54fr6eBHip+OcjAHaaZC/1Jy9HeN6HcZ11ycYKLTh0rJWhSVmHgRlQDkXhSiiEJg+DIaxFbkcB0gyakPGyTVxzCmK+EhQJRoDmTK+Idc8JFqeoYM6fNP0tQ+huFaQcWB74zCIbOpbinWOysTr+32YQUUT07Xpod8G4JVL3WgbrpRYA/+PFsO5Nim1fWktyUmcqQKLuTc9l/epAINr44VS51FbDOhrIubwf2agUGco7fejYXBQ9IdzPd5moCZ5LKmUlGNBUd409uFmdJ8xL1quxqhT1EHyXTtiaI8trEMyUV/TkR5t4yH358gbtAkdCO8dx9HVJI7oGrVloFyuF9mWy5J2Jz84gWKQkzqI6SHhR2kD51of6YPtYGCUZw5i5o5D7texj0B/UxI6j/lH2siyOf6OsNlF+/GGfSjix5L/ayK5vrWKmXJuOHK4x50C7OFFVKva6hHzVFyvvMfRHvFyI1HcqLU0crhBa5Fu704tprjxzO4nc/yevimU/63BTNO/BJTPLjfwvBe/x5DfA3cbeupVJMDN0wYtZfuNI0auBK9LaE64GOZkApdDBY1QTNH3j4HBO9fTqesI5OsdZgRb2x+RXA/FRSIsv/dJYO+cHBJyLkYeXt31N1txGWz2myegksqvF043uL3WO58iNwpvH4eFKuzp+ZiCy8e3D89sIzicXN9PRwOrKwrPqHLJAO8iQscadPgzkcD6oR95fqRXlw288ssLeFibjI2Vi+C+yGHLSvj5soTF4grDkR00hjkpfTYVE/T92xDJ9VBcwPIHP8jICKOSjaCKrzCqQn7TG/T5yqkSt30Vnyqo7jvxZA09557hMbuDDcWJ4gEsvk2RG4LkGm77KMXf1etCfQNVtux1SW/BiFkc+83SqerTu38jwJ1KXwfyTQOt8Tko4Ab159ttqTreP915IZ8q0HZ32eFToI0wuSrAEpAX2508qB3sTEKY9q2kfUmu4M9vI8IOJ8a4j+WTwDNced5kyTdnnKsTuR4MdJLKqcabyG8wn0F9POOy+XNYfY0/3wqXK/OtsWboYK3tNlsXVUMYaFbO+Wn64jyfPYx83GtTmVeacni32YfNyTvHmn6TIWCtMZAnR8klWwz438XB/uzGt3VQwUcblMZ1mIPLwi418l+4vjE8i+SkwhEfcxyXrWoJIVyfYDMC/44iwVyH1SUUKEEhLaDGPrOLI9/CjuGjWmqPpPi7KGt8nPM8cqunCoT7NCExRW4I+IcwDGrcnJaM/8e0gbGdVxdaz9IDbVHWzLnrnUhfhQSu+S2ClvflnXHIt70NFPie0OfipxeqVoEY8FucXKpZAWzu9B2PvpXIDr4FQKB9XU6mRQmlRdJ4TLLDyRDiY/rYy+UvAX/TGWVMfwQ2gevB4OFiBoe825jV3u8NeTcLfAoIgv2ak2QfPMmMYPbRn8H8tx4zBiHfUA0+BU4C/XkAVetlfWKHd8RA4W0liqrTi3IzJoKHi++OodzuG9629MdlZ2CLoTrQ/Djx5ZifKGb8VeD59uBfZs04DQD+BxHexDE9ctPlAAAAAElFTkSuQmCC"
-        /></span>
-      </div>
-      <div
-        style="
-          margin-top: 30px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        "
-      >
-        <b>Terms &amp; Privacy</b>
-        <div>
-          The Myna app prioritizes your privacy and does not collect or send any
-          data to its servers. However, it integrates with OpenAI or GeminiAI,
-          meaning your data is processed through their servers. We strongly
-          encourage you to review their privacy policies to understand how they
-          handle your information. For your safety, please avoid sharing any
-          personal or sensitive information while using the app. Myna is
-          designed as a language learning tool through simulated scenarios.
-          <b>Keep language learning real, but the information fake!</b>
+      <div class="full head-3 palette-4">
+        <div class="tutorial-container">
+          <div class="text-lg">Tutorials</div>
+          <div>Quick simple setup, and you're all set!</div>
+        </div>
+        <div class="tutorial-container">
+          <div class="text-md">Setup API Keys</div>
+          <div>Here's how you can get your keys:</div>
+          <div class="apis">
+            <a
+              href="https://www.youtube.com/watch?v=OB99E7Y1cMA"
+              target="_blank"
+            >
+              <div class="dark-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-video"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z"
+                  />
+                  <path
+                    d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"
+                  />
+                </svg>
+                <span>ChatGPT</span>
+              </div> </a
+            ><a
+              href="https://www.youtube.com/watch?v=6aj5a7qGcb4"
+              target="_blank"
+            >
+              <div class="dark-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="icon icon-tabler icons-tabler-outline icon-tabler-video"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z"
+                  />
+                  <path
+                    d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"
+                  />
+                </svg>
+                <span>Gemini</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="tutorial-container">
+          <div class="text-md">Setup Keyboard</div>
+          <div>
+            Myna uses iPhone's built-in keyboards for dictation. Remember to
+            download the keyboard for your language.
+          </div>
+          <a href="https://www.youtube.com/watch?v=vKJu5MikOlE" target="_blank">
+            <div class="dark-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-video"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M15 10l4.553 -2.276a1 1 0 0 1 1.447 .894v6.764a1 1 0 0 1 -1.447 .894l-4.553 -2.276v-4z"
+                />
+                <path
+                  d="M3 6m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"
+                />
+              </svg>
+              <span>Video tutorial</span>
+            </div>
+          </a>
         </div>
       </div>
-      <div style="margin-top: 30px">© Naya <span id="year"></span></div>
-      <script>
-        document.getElementById("year").innerHTML = new Date().getFullYear();
-      </script>
+      <div class="half head-2 palette-2">
+        <div class="two-column">
+          <div>
+            <img
+              width="150"
+              src="images/mochi-successful-women-stacking-hands-together.png"
+            />
+          </div>
+          <div>Your support keeps the app free.</div>
+        </div>
+        <div class="two-column bottom">
+          <div class="text-lg">Support our<br />work</div>
+          <a href="https://buymeacoffee.com/avector" target="_blank">
+            <div class="dark-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-coins"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3z"
+                />
+                <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4" />
+                <path
+                  d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598z"
+                />
+                <path d="M3 6v10c0 .888 .772 1.45 2 2" />
+                <path d="M3 11c0 .888 .772 1.45 2 2" />
+              </svg>
+              <span>Donate</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="half head-2 palette-3">
+        <div class="two-column">
+          <div>
+            <img
+              width="150"
+              src="images/mochi-avatars-headshots-of-various-faces.png"
+            />
+          </div>
+          <div>Let's build this app together - tell us what's missing!</div>
+        </div>
+        <div class="two-column bottom">
+          <div class="text-lg">Let's build<br />together</div>
+          <a href="https://forms.gle/S3eso7MQZWzGaP1E7" target="_blank">
+            <div class="dark-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-forms"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 3a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3" />
+                <path d="M6 3a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3" />
+                <path d="M13 7h7a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-7" />
+                <path d="M5 7h-1a1 1 0 0 0 -1 1v8a1 1 0 0 0 1 1h1" />
+                <path d="M17 12h.01" />
+                <path d="M13 12h.01" />
+              </svg>
+              <span>Send feedback</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-text">
+      <a href="terms/">
+        <div class="dark-button">Terms</div>
+      </a>
+      <a href="https://icons8.com/illustrations/style--mochi" target="_blank">
+        Icons by icons8
+      </a>
     </div>
   </body>
 </html>
