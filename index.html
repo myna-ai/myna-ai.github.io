@@ -73,10 +73,41 @@
         padding: 30px;
       }
 
+      .head-4 {
+        display: grid;
+        gap: 1rem 3rem;
+        grid-template-columns: minmax(200px, auto) 1fr;
+        padding: 10px 20px;
+      }
+
       @media (max-width: 768px) {
         .head-3 > * {
           grid-column: auto / span 3;
         }
+        .head-4 > * {
+          grid-column: auto / span 2;
+        }
+      }
+
+      .subscribe {
+        font-weight: bold;
+      }
+
+      .subscribe-button {
+        width: max-content;
+        cursor: pointer;
+        background: #7209b7;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 20px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        transition: color 0.5s ease, background-color 0.5s ease;
+      }
+      .subscribe-button:hover {
+        background-color: white;
+        color: black;
       }
 
       .tutorial-container {
@@ -157,6 +188,11 @@
         color: white;
       }
 
+      .palette-5 {
+        background-color: #000;
+        color: white;
+      }
+
       .download {
         cursor: pointer;
         background-color: black;
@@ -183,7 +219,7 @@
         padding-block: 10px 50px;
       }
       .free-text {
-        /* font-size: 12px; */
+        font-size: 16px;
         margin-top: 10px;
       }
       .footer-text {
@@ -246,6 +282,42 @@
           </div>
         </a>
         <div class="free-text">free for ChatGPT & Gemini users</div>
+      </div>
+      <div class="full head-4 palette-5">
+        <div class="subscribe-container">
+          <div class="subscribe">Subscribe to updates.</div>
+          <div>
+            Coming soon: Android version, new vocab feature, and analytics. Let
+            us know if you want to be notified!
+          </div>
+        </div>
+        <div class="subscribe-container">
+          <a href="https://forms.gle/5iv6A6WN9ZeokcCQ7" target="_blank">
+            <div class="subscribe-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"
+                />
+                <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
+                <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
+              </svg>
+              <b>Notify me!</b>
+            </div>
+          </a>
+        </div>
       </div>
       <div class="full head-3 palette-4">
         <div class="tutorial-container">
